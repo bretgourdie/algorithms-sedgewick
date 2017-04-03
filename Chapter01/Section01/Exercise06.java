@@ -1,3 +1,5 @@
+package Chapter01.Section01;
+
 import edu.princeton.cs.algs4.StdOut;
 
 public class Exercise06
