@@ -15,12 +15,14 @@ public class Exercise11
 
     public static void print2dBoolArray(boolean[][] array)
     {
-        int max = getMax(array);
-        String columnFormatText = getFormatText(max);
-        String cellFormatText = columnFormatText;
-        String rowFormatText = getFormatText(array.length+1);
+        int colMax = getColumnMax(array);
+        int rowMax = array.length+1;
 
-        printColumnNumbers(max, columnFormatText);
+        String columnFormatText = getFormatText(colMax);
+        String cellFormatText = columnFormatText;
+        String rowFormatText = getFormatText(rowMax);
+
+        printColumnNumbers(colMax, rowMax, columnFormatText, rowFormatText);
 
         for(int i = 0; i < array.length; i++)
         {
@@ -36,29 +38,33 @@ public class Exercise11
         }
     }
 
-    public static void printColumnNumbers(int max, String formatText)
+    public static void printColumnNumbers(
+        int max, 
+        int rowMax, 
+        String columnFormatText, 
+        String rowFormatText)
     {
-        for(int i = -1; i < max; i++)
+        // To skip the "row" column
+        printRowHeader(" ", rowFormatText);
+
+        for(int i = 0; i < max; i++)
         {
-            if(i >= 0)
-            {
-                System.out.printf(formatText, i+1);
-            }
-            else
-            {
-                // Skip the "row" column
-                System.out.printf(formatText, " ");
-            }
+            System.out.printf(columnFormatText, i+1);
         }
         System.out.println();
     }
 
     public static void printRowHeader(int row, String formatText)
     {
+        printRowHeader(String.valueOf(row), formatText);
+    }
+
+    public static void printRowHeader(String row, String formatText)
+    {
         System.out.printf(formatText, row);
     }
 
-    public static int getMax(boolean[][] array)
+    public static int getColumnMax(boolean[][] array)
     {
         int max = 0;
 
