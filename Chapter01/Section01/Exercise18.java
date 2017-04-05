@@ -19,12 +19,13 @@ public class Exercise18
                 + ") = "
                 + result);
         }
-        System.out.println("mystery(a, b) multiplies a and b)");
+        System.out.println("mystery(a, b) multiplies a and b.");
 
         for(int i = 0; i < tests.length; i++)
         {
-            int a = tests[0];
-            int b = tests[1];
+            int[] curSet = tests[i];
+            int a = curSet[0];
+            int b = curSet[1];
             int result = mysteryMult(a, b);
             System.out.println("mysteryMult("
                 + a
@@ -33,6 +34,7 @@ public class Exercise18
                 + ") = "
                 + result);
         }
+        System.out.println("mysteryMult(a, b) raises a to the bth power.");
     }
 
     public static int mystery(int a, int b)
@@ -46,6 +48,6 @@ public class Exercise18
     {
         if (b == 0)     return 1;
         if (b % 2 == 0) return mysteryMult(a*a, b/2);
-        return mysteryMult(a+a, b/2) * a;
+        return mysteryMult(a*a, b/2) * a;
     }
 }
