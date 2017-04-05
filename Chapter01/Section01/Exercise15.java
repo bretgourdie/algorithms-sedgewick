@@ -35,7 +35,7 @@ public class Exercise15
 	int[] array = new int[M];
 	for(int i = 0; i < M; i++)
 	{
-	    array[i] = 5;
+	    array[i] = i;
 	}
 
 	return array;
@@ -47,9 +47,9 @@ public class Exercise15
 
 	for(int i = 0; i < array.length; i++)
 	{
-	    if(i < histogram.length)
+	    int element = array[i];
+	    if(element < histogram.length)
 	    {
-		int element = array[i];
 		histogram[element] += 1;
 	    }
 	}
@@ -59,6 +59,16 @@ public class Exercise15
 
     public static boolean confirm(int[] array, int[] histogram, int M)
     {
-	return false;
+	boolean correct;
+
+	int sum = 0;
+	for(int i = 0; i < histogram.length; i++)
+	{
+	    sum += histogram[i];
+	}
+
+	correct = sum == array.length;
+
+	return correct;
     }
 }
