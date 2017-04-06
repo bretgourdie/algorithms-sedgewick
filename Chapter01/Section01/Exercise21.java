@@ -7,7 +7,7 @@ public class Exercise21
 {
     public static void main(String[] args)
     {
-        String[] lines = getStdInLines();
+        String[] lines = StdIn.readAllLines();
         printLines(lines);
     }
 
@@ -30,18 +30,5 @@ public class Exercise21
                     percentage);
             }
         }
-    }
-
-    public static String[] getStdInLines()
-    {
-        ArrayList<String> lines = new ArrayList<String>();
-
-        while(StdIn.hasNextLine())
-        {
-            String curLine = StdIn.readLine();
-            lines.add(curLine);
-        }
-
-        return lines.toArray(new String[0]);
     }
 }
