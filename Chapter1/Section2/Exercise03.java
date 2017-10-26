@@ -14,6 +14,8 @@ public class Exercise03
 	int numIntersect = 0;
 	int numContained = 0;
 	Interval2D[] intervals = new Interval2D[N];
+	Point2D[][] points = new Point2D[N][4];
+
 	for (int newBox = 0; newBox < N; newBox++)
 	{
 	    double xlo = StdRandom.uniform(min, max);
@@ -33,6 +35,10 @@ public class Exercise03
 		yhi = swap;
 	    }
 
+	    points[newBox][0] = new Point2D(xlo, xhi);
+	    points[newBox][1] = new Point2D(xhi, yhi);
+	    points[newBox][2] = new Point2D(xlo, ylo);
+	    points[newBox][3] = new Point2D(ylo, yhi);
 	    intervals[newBox] = get2D(xlo, xhi, ylo, yhi);
 	    StdOut.println("Drawing newBox: " + intervals[newBox]);
 	    intervals[newBox].draw();
@@ -45,8 +51,9 @@ public class Exercise03
 		    numIntersect++;
 		}
 
-		if (isContained(intervals[newBox], intervals[oldBox]))
+		if (isContained(intervals[newBox], points[oldBox]))
 		{
+		    StdOut.println(newBox + " contains " + oldBox);
 		    numContained++;
 		}
 	    }
@@ -55,9 +62,17 @@ public class Exercise03
 
     private static boolean isContained(
 	Interval2D newBox,
-	Interval2D oldBox)
+	Point2D[] oldPoints)
     {
-	return false;
+	boolean contained = true;
+	int numPoints = 4;
+
+	for (int curPoint = 0; curPoint < numPoints; curPoint++)
+	{
+	    contained &= newBox.contains(oldPoints[curPoint]);
+	}
+
+	return contained;
     }
 
     private static boolean isIntersecting(
