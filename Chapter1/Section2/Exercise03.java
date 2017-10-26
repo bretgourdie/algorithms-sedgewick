@@ -42,18 +42,19 @@ public class Exercise03
 	    intervals[newBox] = get2D(xlo, xhi, ylo, yhi);
 	    intervals[newBox].draw();
 
+	    boolean intersects = false;
+	    boolean contains = false;
 	    for (int oldBox = newBox - 1; oldBox >= 0; oldBox--)
 	    {
-		if (isIntersecting(intervals[newBox], intervals[oldBox]))
-		{
-		    numIntersect++;
-		}
-
-		if (isContained(intervals[newBox], points[oldBox]))
-		{
-		    numContained++;
-		}
+		intersects |= isIntersecting(intervals[newBox], intervals[oldBox]);
+		contains |= isContained(intervals[newBox], points[oldBox]);
 	    }
+
+	    numIntersect += intersects ? 1 : 0;
+	    numContained += contains ? 1 : 0;
+
+	    StdOut.println("Intersects? " + intersects + "; contains? " + contains);
+	    StdIn.readLine();
 	}
 
 	StdOut.println(
@@ -67,12 +68,12 @@ public class Exercise03
 	Interval2D newBox,
 	Point2D[] oldPoints)
     {
-	boolean contained = false;
+	boolean contained = true;
 	int numPoints = 4;
 
 	for (int curPoint = 0; curPoint < numPoints; curPoint++)
 	{
-	    contained |= newBox.contains(oldPoints[curPoint]);
+	    contained &= newBox.contains(oldPoints[curPoint]);
 	}
 
 	return contained;
