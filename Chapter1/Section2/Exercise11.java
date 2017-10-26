@@ -55,7 +55,7 @@ public class Exercise11
 	try
 	{
 	    SmartDate date = new SmartDate(0, 1, 2017);
-	    throw new Exception();
+	    throw new RuntimeException();
 	}
 	catch (IllegalArgumentException ex)
 	{
@@ -69,7 +69,7 @@ public class Exercise11
 	try
 	{
 	    SmartDate date = new SmartDate(daysInMonths.length, 1, 2017);
-	    throw new Exception();
+	    throw new RuntimeException();
 	}
 	catch (IllegalArgumentException ex)
 	{
@@ -86,7 +86,7 @@ public class Exercise11
 	    try
 	    {
 		SmartDate date = new SmartDate(month, 0, 2017);
-		throw new Exception();
+		throw new RuntimeException();
 	    }
 	    catch (IllegalArgumentException ex) { }
 	}
@@ -103,7 +103,7 @@ public class Exercise11
 	    try
 	    {
 		SmartDate date = new SmartDate(month, daysInMonths[month] + 1, 2017);
-		throw new Exception();
+		throw new RuntimeException();
 	    }
 	    catch (IllegalArgumentException ex) { }
 	}
