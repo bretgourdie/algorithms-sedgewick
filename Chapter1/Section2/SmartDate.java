@@ -78,7 +78,7 @@ public class SmartDate extends edu.princeton.cs.algs4.Date
 	     curYear < year;
 	     curYear++)
 	{
-	    for (int curMonth = 1; curMonth < 12; curMonth++)
+	    for (int curMonth = 1; curMonth <= 12; curMonth++)
 	    {
 		numDaysBetweenYears += numDaysInMonth(curMonth, curYear);
 	    }
