@@ -62,7 +62,7 @@ public class Exercise03
 	    numIntersect
 	    + " pair(s) of intervals intersect.\n"
 	    + numContained
-	    + " pair(s) of intervals are contained in one another.");
+	    + " interval(s) are contained in one another.");
     }
 
     private static boolean isContained(
