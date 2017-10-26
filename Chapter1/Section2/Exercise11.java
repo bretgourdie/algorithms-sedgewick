@@ -81,7 +81,7 @@ public class Exercise11
     {
 	StdOut.println("testZeroDay()");
 	
-	for (int month = 1; month < daysInMonth.length; month++)
+	for (int month = 1; month < daysInMonths.length; month++)
 	{
 	    try
 	    {
@@ -98,11 +98,11 @@ public class Exercise11
     {
 	StdOut.println("testOutDay()");
 
-	for (int month = 1; month < daysInMonth.length; month++)
+	for (int month = 1; month < daysInMonths.length; month++)
 	{
 	    try
 	    {
-		SmartDate date = new SmartDate(month, daysInMonth[month] + 1, 2017);
+		SmartDate date = new SmartDate(month, daysInMonths[month] + 1, 2017);
 		throw new Exception();
 	    }
 	    catch (IllegalArgumentException ex) { }
