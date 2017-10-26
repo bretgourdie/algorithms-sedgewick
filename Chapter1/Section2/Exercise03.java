@@ -40,24 +40,27 @@ public class Exercise03
 	    points[newBox][2] = new Point2D(xlo, ylo);
 	    points[newBox][3] = new Point2D(ylo, yhi);
 	    intervals[newBox] = get2D(xlo, xhi, ylo, yhi);
-	    StdOut.println("Drawing newBox: " + intervals[newBox]);
 	    intervals[newBox].draw();
 
 	    for (int oldBox = newBox - 1; oldBox >= 0; oldBox--)
 	    {
 		if (isIntersecting(intervals[newBox], intervals[oldBox]))
 		{
-		    StdOut.println(newBox + " intersects " + oldBox);
 		    numIntersect++;
 		}
 
 		if (isContained(intervals[newBox], points[oldBox]))
 		{
-		    StdOut.println(newBox + " contains " + oldBox);
 		    numContained++;
 		}
 	    }
 	}
+
+	StdOut.println(
+	    numIntersect
+	    + " pair(s) of intervals intersect.\n"
+	    + numContained
+	    + " pair(s) of intervals are contained in one another.");
     }
 
     private static boolean isContained(
