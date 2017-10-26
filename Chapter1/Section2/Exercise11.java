@@ -33,7 +33,7 @@ public class Exercise11
 	StdOut.println("testGoodDatesNonLeapYear()");
 
 	int year = 2017;
-	for (int month = 1; month <= daysInMonths.length; month++)
+	for (int month = 1; month < daysInMonths.length; month++)
 	{
 	    for (int day = 1; day <= daysInMonths[month]; day++)
 	    {
