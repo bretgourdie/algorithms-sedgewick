@@ -4,7 +4,7 @@ import edu.princeton.cs.algs4.*;
 
 public class Exercise11
 {
-    private int[] daysInMonths = new int[]
+    private static int[] daysInMonths = new int[]
 	{-1,
 	31,
 	28,
