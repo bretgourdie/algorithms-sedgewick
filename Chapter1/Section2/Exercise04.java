@@ -11,5 +11,9 @@ public class Exercise04
 	string1 = "world";
 	StdOut.println(string1);
 	StdOut.println(string2);
+	/* Prints:
+	 * world
+	 * hello
+	 */
     }
 }
