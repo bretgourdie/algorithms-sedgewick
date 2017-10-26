@@ -54,8 +54,6 @@ public class Exercise03
 	    numIntersect += intersects ? 1 : 0;
 	    numContained += contains ? 1 : 0;
 
-	    StdOut.println("Intersects? " + intersects + "; contains? " + contains);
-	    StdIn.readLine();
 	}
 
 	StdOut.println(
