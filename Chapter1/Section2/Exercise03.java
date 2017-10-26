@@ -48,6 +48,7 @@ public class Exercise03
 	    {
 		intersects |= isIntersecting(intervals[newBox], intervals[oldBox]);
 		contains |= isContained(intervals[newBox], points[oldBox]);
+		contains |= isContained(intervals[oldBox], points[newBox]);
 	    }
 
 	    numIntersect += intersects ? 1 : 0;
