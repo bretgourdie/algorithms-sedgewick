@@ -67,12 +67,12 @@ public class Exercise03
 	Interval2D newBox,
 	Point2D[] oldPoints)
     {
-	boolean contained = true;
+	boolean contained = false;
 	int numPoints = 4;
 
 	for (int curPoint = 0; curPoint < numPoints; curPoint++)
 	{
-	    contained &= newBox.contains(oldPoints[curPoint]);
+	    contained |= newBox.contains(oldPoints[curPoint]);
 	}
 
 	return contained;
