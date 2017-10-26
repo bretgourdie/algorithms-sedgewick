@@ -22,10 +22,15 @@ public class Exercise11
     public static void main (String[] args)
     {
 	testGoodDatesNonLeapYear();
+
 	testZeroMonth();
 	testOutMonth();
 	testZeroDay();
 	testOutDay();
+
+	testGoodLeapYear();
+	testHundrethLeapYear();
+	testFourHundrethLeapYear();
     }
 
     public static void testGoodDatesNonLeapYear()
@@ -107,6 +112,39 @@ public class Exercise11
 	    }
 	    catch (IllegalArgumentException ex) { }
 	}
+
+	pGood();
+    }
+
+    public static void testGoodLeapYear()
+    {
+	StdOut.println("testGoodLeapYear()");
+
+	SmartDate date = new SmartDate(2, 29, 2012);
+
+	pGood();
+    }
+
+    public static void testHundrethLeapYear()
+    {
+	StdOut.println("testHundrethLeapYear()");
+
+	try
+	{
+	    SmartDate date = new SmartDate(2, 29, 2100);
+	    throw new RuntimeException();
+	}
+	catch (IllegalArgumentException ex) { }
+
+
+	pGood();
+    }
+
+    public static void testFourHundrethLeapYear()
+    {
+	StdOut.println("testFourHundrethLeapYear()");
+
+	SmartDate date = new SmartDate(2, 29, 2400);
 
 	pGood();
     }
