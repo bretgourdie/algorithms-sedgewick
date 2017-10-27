@@ -4,9 +4,7 @@ import edu.princeton.cs.algs4.*;
 
 public class Transaction
 {
-    private final int month;
-    private final int day;
-    private final int year;
+    private final Date date;
     private final String customer;
     private final double amount;
 
@@ -18,15 +16,13 @@ public class Transaction
 	double amount)
     {
 	this.customer = new String(customer);
-	this.month = month;
-	this.day = day;
-	this.year = year;
+	this.date = new Date(month, day, year);
 	this.amount = amount;
     }
 
-    public int month() { return month; }
-    public int day() { return day; }
-    public int year() { return year; }
+    public int month() { return date.month(); }
+    public int day() { return date.day(); }
+    public int year() { return date.year(); }
     public double amount() { return amount; }
     public String customer() { return new String(customer); }
 
