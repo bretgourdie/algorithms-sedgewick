@@ -20,6 +20,29 @@ public class Transaction
 	this.amount = amount;
     }
 
+    public Transaction(String transaction)
+    {
+	String[] fields = transaction.split("\\s+");
+
+	if (fields.length < 3)
+	    throw new IllegalArgumentException(
+		fields.length
+		+ " fields detected (3 required)");
+
+	String date = fields[fields.length - 2];
+	String strAmount = fields[fields.length - 1];
+
+	String customer = "";
+	for (int ii = 0; ii < fields.length - 2; ii++)
+	{
+	    customer = customer + " " + fields[ii];
+	}
+
+	this.customer = new String(customer);
+	this.date = new Date(date);
+	this.amount = Double.parseDouble(strAmount);
+    }
+
     public int month() { return date.month(); }
     public int day() { return date.day(); }
     public int year() { return date.year(); }
