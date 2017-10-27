@@ -8,7 +8,8 @@ public class FixedCapacityStackOfStrings
     public FixedCapacityStackOfStrings(int cap)
     { a = new String[cap]; }
 
-    public boolean isEMpty() { return N == 0; }
+    public boolean isEmpty() { return N == 0; }
+    public boolean isFull()  { return N == a.length; }
     public int size()        { return N; }
     
     public void push(String item)
