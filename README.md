@@ -6,3 +6,4 @@ Please do not copy these answers for school.  I will email your teacher. You won
 For easy algs4.jar referencing, put the .jar in the following folder:
 
  - Windows: jdk[version]\jre\lib\ext\
+ - Linux: /usr/java/packages/lib/ext/
