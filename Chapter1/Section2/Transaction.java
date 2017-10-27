@@ -26,4 +26,19 @@ public class Transaction
     {
 	return month() + "/" + day() + "/" + year() + ": " + amount;
     }
+
+    public boolean equals(Object x)
+    {
+	if (this == x) return true;
+	if (x == null) return false;
+	if (this.getClass() != x.getClass()) return false;
+
+	Transaction that = (Transaction)x;
+
+	return
+	       that.month() == this.month()
+	    && that.day() == this.day()
+	    && that.year() == this.year()
+	    && that.amount() == this.amount();
+    }
 }
