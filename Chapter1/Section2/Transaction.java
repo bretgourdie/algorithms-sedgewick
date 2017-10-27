@@ -7,10 +7,17 @@ public class Transaction
     private final int month;
     private final int day;
     private final int year;
-    private final int amount;
+    private final String customer;
+    private final double amount;
 
-    public Transaction(int month, int day, int year, int amount)
+    public Transaction(
+	String customer, 
+	int month, 
+	int day, 
+	int year, 
+	double amount)
     {
+	this.customer = new String(customer);
 	this.month = month;
 	this.day = day;
 	this.year = year;
@@ -20,11 +27,16 @@ public class Transaction
     public int month() { return month; }
     public int day() { return day; }
     public int year() { return year; }
-    public int amount() { return amount; }
+    public double amount() { return amount; }
+    public String customer() { return new String(customer); }
 
     public String toString()
     {
-	return month() + "/" + day() + "/" + year() + ": " + amount;
+	return customer 
+	    + " " 
+	    + month() + "/" + day() + "/" + year() 
+	    + " " 
+	    + amount;
     }
 
     public boolean equals(Object x)
@@ -39,6 +51,7 @@ public class Transaction
 	       that.month() == this.month()
 	    && that.day() == this.day()
 	    && that.year() == this.year()
-	    && that.amount() == this.amount();
+	    && that.amount() == this.amount()
+	    && that.customer().equals(this.customer());
     }
 }
