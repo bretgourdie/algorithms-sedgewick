@@ -25,8 +25,17 @@ public class Rational
 	return sum(b, -1);
     }
 
+    private void assertMults(int a, int b)
+    {
+	assert (long)a * (long)b < Integer.MAX_VALUE;
+    }
+
     private Rational sum(Rational b, int multiplyBit)
     {
+	assertMults(numerator, b.denominator());
+	assertMults(b.numerator(), denominator);
+	assertMults(denominator, b.denominator());
+
 	int newA = numerator * b.denominator();
 	int newB = b.numerator * denominator();
 	
@@ -38,6 +47,9 @@ public class Rational
 
     public Rational times (Rational b)
     {
+	assertMults(numerator, b.numerator());
+	assertMults(denominator, b.denominator());
+
 	return new Rational(
 	    numerator * b.numerator(), 
 	    denominator * b.denominator());
@@ -45,6 +57,9 @@ public class Rational
 
     public Rational divides (Rational b)
     {
+	assertMults(numerator, b.denominator());
+	assertMults(denominator, b.numerator());
+
 	return new Rational(
 	    numerator * b.denominator(),
 	    denominator * b.numerator());
