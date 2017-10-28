@@ -8,17 +8,33 @@ public class ResizingArrayQueueOfStrings
     int start;
     int end;
     int count;
+    private final int initialSize = 5;
 
-    public ResizingArrayQueueOfStrings(int size)
+    public ResizingArrayQueueOfStrings()
     {
-	q = new String[size];
+	q = new String[initialSize];
 	count = 0;
+    }
+
+    private void resize(int max)
+    {
+	String[] temp = new String[max];
+
+	for (int ii = 0; ii < count; ii++)
+	{
+	    temp[ii] = q[ii];
+	}
+
+	q = temp;
     }
 
     public void enqueue(String toQ)
     {
 	if (isFull())
 	    return;
+
+	if (count == q.length)
+	    resize(2 * q.length);
 	
 	q[end] = toQ;
 	end = (end + 1) % q.length;
@@ -29,6 +45,9 @@ public class ResizingArrayQueueOfStrings
     {
 	if (isEmpty())
 	    return null;
+
+	if (count > 0 && count == q.length / 4)
+	    resize(q.length / 2);
 
 	count--;
 	String dqd = q[start];

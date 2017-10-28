@@ -15,14 +15,14 @@ public class Exercise14
     public static void testQueueEmpty()
     {
 	StdOut.println("testQueueEmpty()");
-	ResizingArrayQueueOfStrings q = new ResizingArrayQueueOfStrings(1);
+	ResizingArrayQueueOfStrings q = new ResizingArrayQueueOfStrings();
 	StdOut.println(q);
     }
 
     public static void testQueueFull()
     {
 	StdOut.println("testQueueFull()");
-	ResizingArrayQueueOfStrings q = new ResizingArrayQueueOfStrings(10);
+	ResizingArrayQueueOfStrings q = new ResizingArrayQueueOfStrings();
 
 	StdOut.println("Queueing:");
 	for (int ii = 0; ii < 10; ii++)
@@ -37,7 +37,7 @@ public class Exercise14
     public static void testQueueWrapAround()
     {
 	StdOut.println("testQueueWrapAround()");
-	ResizingArrayQueueOfStrings q = new ResizingArrayQueueOfStrings(5);
+	ResizingArrayQueueOfStrings q = new ResizingArrayQueueOfStrings();
 
 	StdOut.println("Queueing:");
 	for (int ii = 0; ii < 3; ii++)
@@ -65,7 +65,7 @@ public class Exercise14
     public static void testOverFill()
     {
 	StdOut.println("testOverFill()");
-	ResizingArrayQueueOfStrings q = new ResizingArrayQueueOfStrings(1);
+	ResizingArrayQueueOfStrings q = new ResizingArrayQueueOfStrings();
 
 	StdOut.println("Queueing:");
 	for (int ii = 0; ii < 5; ii++)
