@@ -22,19 +22,20 @@ public class ResizingArrayQueueOfStrings
 
 	for (int ii = 0; ii < count; ii++)
 	{
-	    temp[ii] = q[ii];
+	    temp[ii] = q[(start + ii) % q.length];
 	}
 
 	q = temp;
+	start = 0;
+	end = count;
     }
 
     public void enqueue(String toQ)
     {
-	if (isFull())
-	    return;
-
 	if (count == q.length)
+	{
 	    resize(2 * q.length);
+	}
 	
 	q[end] = toQ;
 	end = (end + 1) % q.length;
@@ -60,11 +61,6 @@ public class ResizingArrayQueueOfStrings
     public boolean isEmpty()
     {
 	return count == 0;
-    }
-
-    public boolean isFull()
-    {
-	return count == q.length;
     }
 
     public String toString()

@@ -53,7 +53,7 @@ public class Exercise14
 	}
 
 	StdOut.println("Queueing:");
-	for (int ii = 3; ii < 3+4; ii++)
+	for (int ii = 3; ii < 3+5; ii++)
 	{
 	    StdOut.println("\t" + ii);
 	    q.enqueue(Integer.toString(ii));
